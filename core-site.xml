@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="configuration.xsl"?>
+<configuration>
+    <!-- NameNode URI -->
+    <property>
+        <name>fs.defaultFS</name>
+        <value>hdfs://namenode:9000</value>
+        <description>Default filesystem URI</description>
+    </property>
+    
+    <!-- Hadoop temporary directory -->
+    <property>
+        <name>hadoop.tmp.dir</name>
+        <value>/tmp/hadoop-${user.name}</value>
+        <description>Temporary directory for Hadoop</description>
+    </property>
+    
+    <!-- HDFS permissions -->
+    <property>
+        <name>dfs.permissions.enabled</name>
+        <value>false</value>
+        <description>Disable HDFS permissions for development</description>
+    </property>
+</configuration>

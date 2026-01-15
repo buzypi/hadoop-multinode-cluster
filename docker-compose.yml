@@ -1,0 +1,80 @@
+version: '3.8'
+
+services:
+  # Master node with NameNode and ResourceManager
+  namenode:
+    image: hadoop-base:latest
+    container_name: namenode
+    hostname: namenode
+    environment:
+      - HDFS_NAMENODE_USER=root
+      - HDFS_DATANODE_USER=root
+      - HDFS_SECONDARYNAMENODE_USER=root
+      - YARN_RESOURCEMANAGER_USER=root
+      - YARN_NODEMANAGER_USER=root
+    ports:
+      - "9870:9870"  # HDFS NameNode UI
+      - "9000:9000"  # HDFS port
+      - "19888:19888" # MapReduce JobHistory
+      - "8088:8088"   # YARN ResourceManager
+    volumes:
+      - hadoop-namenode-data:/opt/hadoop/namenode-data
+      - hadoop-ssh-keys:/root/.ssh
+    networks:
+      hadoop-network:
+        ipv4_address: 172.18.0.2
+
+  # DataNode 1 with NodeManager 1
+  datanode1:
+    image: hadoop-base:latest
+    container_name: datanode1
+    hostname: datanode1
+    environment:
+      - HDFS_NAMENODE_USER=root
+      - HDFS_DATANODE_USER=root
+      - HDFS_SECONDARYNAMENODE_USER=root
+      - YARN_RESOURCEMANAGER_USER=root
+      - YARN_NODEMANAGER_USER=root
+    ports:
+      - "9864:9864"  # HDFS DataNode
+      - "8042:8042"  # NodeManager UI
+    volumes:
+      - hadoop-datanode1-data:/opt/hadoop/datanode-data
+      - hadoop-ssh-keys:/root/.ssh
+    networks:
+      hadoop-network:
+        ipv4_address: 172.18.0.3
+
+  # DataNode 2 with NodeManager 2
+  datanode2:
+    image: hadoop-base:latest
+    container_name: datanode2
+    hostname: datanode2
+    environment:
+      - HDFS_NAMENODE_USER=root
+      - HDFS_DATANODE_USER=root
+      - HDFS_SECONDARYNAMENODE_USER=root
+      - YARN_RESOURCEMANAGER_USER=root
+      - YARN_NODEMANAGER_USER=root
+    ports:
+      - "9865:9865"  # HDFS DataNode
+      - "8043:8043"  # NodeManager UI
+    volumes:
+      - hadoop-datanode2-data:/opt/hadoop/datanode-data
+      - hadoop-ssh-keys:/root/.ssh
+    networks:
+      hadoop-network:
+        ipv4_address: 172.18.0.4
+
+volumes:
+  hadoop-namenode-data:
+  hadoop-datanode1-data:
+  hadoop-datanode2-data:
+  hadoop-ssh-keys:
+
+networks:
+  hadoop-network:
+    driver: bridge
+    ipam:
+      config:
+        - subnet: 172.18.0.0/24

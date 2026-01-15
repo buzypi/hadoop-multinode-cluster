@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="configuration.xsl"?>
+<configuration>
+    <!-- YARN ResourceManager address -->
+    <property>
+        <name>yarn.resourcemanager.hostname</name>
+        <value>namenode</value>
+        <description>ResourceManager hostname</description>
+    </property>
+    
+    <!-- ResourceManager address -->
+    <property>
+        <name>yarn.resourcemanager.address</name>
+        <value>namenode:8032</value>
+        <description>ResourceManager address</description>
+    </property>
+    
+    <!-- ResourceManager scheduler address -->
+    <property>
+        <name>yarn.resourcemanager.scheduler.address</name>
+        <value>namenode:8030</value>
+        <description>ResourceManager scheduler address</description>
+    </property>
+    
+    <!-- ResourceManager resource tracker address -->
+    <property>
+        <name>yarn.resourcemanager.resource-tracker.address</name>
+        <value>namenode:8031</value>
+        <description>ResourceManager resource tracker address</description>
+    </property>
+    
+    <!-- ResourceManager admin address -->
+    <property>
+        <name>yarn.resourcemanager.admin.address</name>
+        <value>namenode:8033</value>
+        <description>ResourceManager admin address</description>
+    </property>
+    
+    <!-- NodeManager address -->
+    <property>
+        <name>yarn.nodemanager.address</name>
+        <value>0.0.0.0:45454</value>
+        <description>NodeManager address</description>
+    </property>
+    
+    <!-- NodeManager localizer address -->
+    <property>
+        <name>yarn.nodemanager.localizer.address</name>
+        <value>0.0.0.0:8040</value>
+        <description>NodeManager localizer address</description>
+    </property>
+    
+    <!-- NodeManager HTTP address -->
+    <property>
+        <name>yarn.nodemanager.http.address</name>
+        <value>0.0.0.0:8042</value>
+        <description>NodeManager HTTP address</description>
+    </property>
+    
+    <!-- MapReduce shuffle service -->
+    <property>
+        <name>yarn.nodemanager.aux-services</name>
+        <value>mapreduce_shuffle</value>
+        <description>Auxiliary services for NodeManager</description>
+    </property>
+    
+    <!-- MapReduce shuffle class -->
+    <property>
+        <name>yarn.nodemanager.aux-services.mapreduce_shuffle.class</name>
+        <value>org.apache.hadoop.mapred.ShuffleHandler</value>
+        <description>Shuffle handler class</description>
+    </property>
+    
+    <!-- YARN application classpath -->
+    <property>
+        <name>yarn.application.classpath</name>
+        <value>$HADOOP_HOME/share/hadoop/common/*:$HADOOP_HOME/share/hadoop/common/lib/*:$HADOOP_HOME/share/hadoop/mapreduce/*:$HADOOP_HOME/share/hadoop/mapreduce/lib/*:$HADOOP_HOME/share/hadoop/hdfs/*:$HADOOP_HOME/share/hadoop/hdfs/lib/*:$HADOOP_HOME/share/hadoop/yarn/*:$HADOOP_HOME/share/hadoop/yarn/lib/*</value>
+        <description>YARN application classpath</description>
+    </property>
+    
+    <!-- NodeManager memory -->
+    <property>
+        <name>yarn.nodemanager.resource.memory-mb</name>
+        <value>1024</value>
+        <description>NodeManager memory</description>
+    </property>
+    
+    <!-- NodeManager virtual cores -->
+    <property>
+        <name>yarn.nodemanager.resource.cpu-vcores</name>
+        <value>1</value>
+        <description>NodeManager virtual cores</description>
+    </property>
+    
+    <!-- Application Master memory -->
+    <property>
+        <name>yarn.scheduler.minimum-allocation-mb</name>
+        <value>256</value>
+        <description>Minimum allocation memory</description>
+    </property>
+    
+    <!-- Application Master maximum memory -->
+    <property>
+        <name>yarn.scheduler.maximum-allocation-mb</name>
+        <value>1024</value>
+        <description>Maximum allocation memory</description>
+    </property>
+</configuration>

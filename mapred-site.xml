@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="configuration.xsl"?>
+<configuration>
+    <!-- MapReduce framework name -->
+    <property>
+        <name>mapreduce.framework.name</name>
+        <value>yarn</value>
+        <description>MapReduce framework name</description>
+    </property>
+    
+    <!-- MapReduce Application classpath -->
+    <property>
+        <name>mapreduce.application.classpath</name>
+        <value>$HADOOP_HOME/share/hadoop/common/*:$HADOOP_HOME/share/hadoop/common/lib/*:$HADOOP_HOME/share/hadoop/mapreduce/*:$HADOOP_HOME/share/hadoop/mapreduce/lib/*:$HADOOP_HOME/share/hadoop/hdfs/*:$HADOOP_HOME/share/hadoop/hdfs/lib/*:$HADOOP_HOME/share/hadoop/yarn/*:$HADOOP_HOME/share/hadoop/yarn/lib/*</value>
+        <description>MapReduce application classpath</description>
+    </property>
+    
+    <!-- Application Master environment -->
+    <property>
+        <name>yarn.app.mapreduce.am.env</name>
+        <value>HADOOP_MAPRED_HOME=/opt/hadoop</value>
+        <description>HADOOP_MAPRED_HOME environment variable</description>
+    </property>
+    
+    <!-- MapReduce job history server address -->
+    <property>
+        <name>mapreduce.jobhistory.address</name>
+        <value>resourcemanager:10020</value>
+        <description>JobHistory server address</description>
+    </property>
+    
+    <!-- MapReduce job history server HTTP address -->
+    <property>
+        <name>mapreduce.jobhistory.webapp.address</name>
+        <value>resourcemanager:19888</value>
+        <description>JobHistory server web application address</description>
+    </property>
+    
+    <!-- MapReduce Application Master memory -->
+    <property>
+        <name>yarn.app.mapreduce.am.resource.mb</name>
+        <value>512</value>
+        <description>Application Master memory</description>
+    </property>
+    
+    <!-- MapReduce Application Master CPU cores -->
+    <property>
+        <name>yarn.app.mapreduce.am.resource.cpu-vcores</name>
+        <value>1</value>
+        <description>Application Master CPU cores</description>
+    </property>
+    
+    <!-- Map task memory -->
+    <property>
+        <name>mapreduce.map.memory.mb</name>
+        <value>512</value>
+        <description>Map task memory</description>
+    </property>
+    
+    <!-- Reduce task memory -->
+    <property>
+        <name>mapreduce.reduce.memory.mb</name>
+        <value>512</value>
+        <description>Reduce task memory</description>
+    </property>
+    
+    <!-- MapReduce job user classpath first -->
+    <property>
+        <name>mapreduce.job.user.classpath.first</name>
+        <value>true</value>
+        <description>User classpath first</description>
+    </property>
+    
+    <!-- MapReduce task Java options -->
+    <property>
+        <name>mapreduce.map.java.opts</name>
+        <value>-Xmx409m</value>
+        <description>Map task Java options</description>
+    </property>
+    
+    <!-- Reduce task Java options -->
+    <property>
+        <name>mapreduce.reduce.java.opts</name>
+        <value>-Xmx409m</value>
+        <description>Reduce task Java options</description>
+    </property>
+</configuration>
